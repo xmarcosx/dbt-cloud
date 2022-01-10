@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: StgStudentDemographicsAndEnrollment_v2
+    description: "General demographic and enrollment information about students with enrollments during the current academic year."
+    config:
+      materialized: table
+    columns:
+      - name: "SchoolId || '-' || StudentUniqueId || '-' || CAST(EntryDate AS STRING)"
+        tests:
+          - unique
+          - not_null
+      - name: StudentUniqueId
+        description: "The local student id for the student."
+        tests:
+          - not_null
