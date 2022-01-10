@@ -1,10 +1,15 @@
 version: 2
 
 models:
+  - name: StgCourseGrades
+    description: ""
+    config:
+      materialized: view
+
   - name: StgStudentDemographicsAndEnrollment_v2
     description: "General demographic and enrollment information about students with enrollments during the current academic year."
     config:
-      materialized: table
+      materialized: view
     columns:
       - name: "SchoolId || '-' || StudentUniqueId || '-' || CAST(EntryDate AS STRING)"
         tests:

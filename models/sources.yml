@@ -4,4 +4,5 @@ sources:
     - name: StarterPack
       schema: StarterPack
       tables:
+        - name: CourseGrades
         - name: StudentDemographicsAndEnrollment_v2
