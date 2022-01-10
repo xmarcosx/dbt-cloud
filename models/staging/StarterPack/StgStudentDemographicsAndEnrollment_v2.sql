@@ -1,8 +1,9 @@
 
 
-SELECT * EXCEPT (GradeLevel, Race),
+SELECT * EXCEPT (GradeLevel, Race, IsSped, Mentor),
+    IsSped                                        AS HasIEP,
     CAST(GradeLevel AS int64)                     AS GradeLevel,
-    IFNULL(Race, 'Unknown')                       AS Race,
+    IFNULL(Race, 'Unknown')                       AS RaceAndEthnicity,
     CASE ExitWithdrawReason
         WHEN 'Student is currently enrolled' THEN TRUE
         WHEN NULL THEN TRUE

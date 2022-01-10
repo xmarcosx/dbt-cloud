@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: DimStudent
+    description: "General demographic and enrollment information about students with enrollments during the current academic year."
+    config:
+      materialized: table
+    columns:
+      - name: StudentUniqueId
+        description: "The local student id for the student."
+        tests:
+          - not_null
+          - unique
