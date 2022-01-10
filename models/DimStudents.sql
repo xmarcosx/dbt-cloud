@@ -9,6 +9,19 @@ WITH enrollments_ranked AS (
 )
 
 
-SELECT *
+SELECT
+    SchoolId,
+    NameOfInstitution,
+    StudentUniqueId,
+    DisplayName,
+    Gender,
+    IsEll,
+    HasIEP,
+    LunchStatus,
+    Email,
+    GradeLevel,
+    RaceAndEthnicity,
+    CurrentlyEnrolled,
+    ExitWithdrawReason
 FROM enrollments_ranked
 WHERE rank = 1

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: DimStudent
+  - name: DimStudents
     description: "General demographic and enrollment information about students with enrollments during the current academic year."
     config:
       materialized: table
@@ -11,3 +11,17 @@ models:
         tests:
           - not_null
           - unique
+
+  - name: FactGrades
+    description: "One row per student per class section per grading period. The final / semester grade is shown if it exists, otherwise the gradebook grade is shown."
+    config:
+      materialized: table
+    columns:
+      - name: "SchoolId || '-' || StudentUniqueId || '-' || SectionIdentifier || '-' || GradingPeriodDescriptor"
+        tests:
+          - unique
+          - not_null
+      - name: StudentUniqueId
+        description: "The local student id for the student."
+        tests:
+          - not_null
